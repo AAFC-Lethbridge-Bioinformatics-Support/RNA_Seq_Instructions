@@ -1,0 +1,42 @@
+---
+title: "RNA-Seq Guide"
+output: html_document
+---
+  
+Here are some instructions for RNA-Seq analysis, or something.
+
+
+## Installing RStudio and required packages
+1. Install Bioconductor and its packages (https://www.bioconductor.org/install/).
+```
+  if (!requireNamespace("BiocManager", quietly = TRUE))
+    		  install.packages("BiocManager")
+  BiocManager::install(version = "3.11")
+```
+2. Install Rtools40 (https://cran.r-project.org/bin/windows/Rtools/).  
+3. Install refGenome for gene and splice site annotation.  
+  3a.Navigate to: https://cran.r-project.org/src/contrib/Archive/refGenome/.  
+  3b. Download file: refGenome_1.7.7.tar.gz  
+  3c. Select Tools > Install Packages…  
+  3d. In the “Install Packages” pop up window, change the “Install from:” field to “Package Archive File (.zip; .tar.gz)”  
+  3e. Select the refGenome_1.7.7.tar.gz package archive via the browse button.  
+  [i don't know what the path to this image is... i'll figure this out another time.](RMarkdowninstallpacakge.png)  
+  3f. You may have to update to R 4.0.02 for this method to work. To update R:  
+  In RStudio, enter the following:  
+  ```
+  install.packages(installr)  
+  ```
+  Open the R console, and enter the following:  
+  ```
+  installr::updateR(F, T, T, F, T, F, T)  
+  ```
+
+## Setting Up RStudio via Biocluster
+1. Connect to VPN.  
+2. Go to: http://biocluster.agr.gc.ca/rstudio/auth-sign-in. Use the same credentials for logging into the VPN.  
+3. Create a new project for the RNA-Seq analysis.  
+4. Add a path for necessary packages.  
+```
+.libPaths(c(.libPaths(), "/isilon/lethbridge-rdc/training/R_env"))  
+.libPaths()  
+```
